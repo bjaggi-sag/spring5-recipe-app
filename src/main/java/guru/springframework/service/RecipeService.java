@@ -3,10 +3,11 @@ package guru.springframework.service;
 import guru.springframework.domain.Recipe;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
+import java.util.Set;
 
 
 public interface RecipeService {
 
-    List<Recipe> getRecipes();
+    Set<Recipe> getRecipes();
 }
