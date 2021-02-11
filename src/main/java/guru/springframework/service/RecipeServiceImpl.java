@@ -4,10 +4,7 @@ import guru.springframework.domain.Recipe;
 import guru.springframework.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
@@ -26,4 +23,14 @@ public class RecipeServiceImpl implements RecipeService {
 
         return  recipeList;
     }
+
+    @Override
+    public Recipe findById(Long l){
+        Optional <Recipe> recipeOptional = recipeRepository.findById(l);
+        if(!recipeOptional.isPresent()){
+            throw new RuntimeException("Recipe Not found!!!");
+        }
+        return recipeOptional.get();
+    }
+
 }
